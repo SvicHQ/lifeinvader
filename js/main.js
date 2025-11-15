@@ -248,3 +248,7 @@ function saveNote() {
     siteNotes = document.getElementById("siteNotes").value || "";
     localStorage.setItem("siteNotes", siteNotes);
 }
+
+function clearNotes() {
+    document.getElementById("siteNotes").value = "";
+}
