@@ -1,13 +1,17 @@
 // Prevent multiple executions
 if (typeof window.mainLoaded === 'undefined') {
     window.mainLoaded = true;
+
+    if (localStorage.getItem("auto_login") === "1") {
+        sitelogin();
+    }
     
     document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById("siteNotes").innerText = localStorage.getItem("siteNotes") || "";
 
     // Access control for AFK Logs tab (keeping this logic)
-    const allowedUsers = ["sabbir12@", "lucix", "admin"]; // Add allowed usernames here
+    const allowedUsers = ["bishalqx980"]; // Add allowed usernames here
     // Assuming 'username' variable is defined elsewhere or retrieved
     const username = "guest"; // Placeholder: Replace with actual username retrieval logic
 
@@ -242,6 +246,67 @@ if (typeof window.mainLoaded === 'undefined') {
         });
     });
 });
+}
+
+// Hashing using Web Crypto API (SHA-256)
+async function sha256(text) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+async function sitelogin() {
+    const local_password_hash = localStorage.getItem("login_password");
+
+    const login_username =
+        document.getElementById("login_username").value.trim() ||
+        localStorage.getItem("login_username");
+
+    const login_password = document.getElementById("login_password").value;
+
+    const authorized_users = ["bishalqx980"];
+    const stored_password_hash = "32ad188ae74bd4f2377fc55ff9f83f55d486971a0da5b39d6d347e2d861502d8";
+
+    // --- USERNAME CHECK ---
+    if (!authorized_users.includes(login_username)) {
+        alert("Unauthorized user!");
+        return;
+    }
+
+    // --- PASSWORD HASH CHECK ---
+    let entered_hash;
+
+    if (local_password_hash) {
+        // Already logged in before
+        entered_hash = local_password_hash;
+    } else {
+        // First-time login → hash the typed password
+        entered_hash = await sha256(login_password);
+    }
+
+    if (entered_hash !== stored_password_hash) {
+        alert("Incorrect password!");
+        return;
+    }
+
+    // --- SUCCESS ---
+    console.log("Login successful!");
+    document.getElementById("login-screen").style.display = "none";
+    document.getElementById("main-app").style.display = "";
+
+    // Save login
+    localStorage.setItem("login_username", login_username);
+    localStorage.setItem("login_password", entered_hash);
+    localStorage.setItem("auto_login", "1");
+}
+
+function sitelogout() {
+    localStorage.setItem("login_username", "");
+    localStorage.setItem("login_password", "");
+    localStorage.setItem("auto_login", "0");
+    window.location.reload();
 }
 
 function saveNote() {

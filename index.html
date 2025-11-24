@@ -12,8 +12,17 @@
 </head>
 
 <body>
+    <!-- login screen -->
+    <div id="login-screen">
+        <form action="" onsubmit="event.preventDefault()">
+            <input type="text" id="login_username" placeholder="username" required>
+            <input type="password" id="login_password" placeholder="password" required>
+            <input type="submit" value="Login" onclick="sitelogin()">
+        </form>
+    </div>
+
     <!-- Premium Main Application -->
-    <div id="main-app">
+    <div id="main-app" style="display: none;">
         <div class="main-wrapper">
             <!-- Ultra-Modern Sidebar -->
             <aside class="sidebar">
@@ -59,6 +68,7 @@
                     <br>
                     <textarea class="note-area" id="siteNotes" placeholder="Notes" onkeyup="saveNote()"></textarea>
                     <button class="noteBtn btn btn-secondary" onclick="clearNotes()">Clear</button>
+                    <button class="noteBtn btn reset-button" onclick="sitelogout()">Logout</button>
                 </nav>
             </aside>
 

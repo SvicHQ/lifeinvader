@@ -21,6 +21,10 @@ body {
     line-height: 1.6;
 }
 
+#login-screen {
+    padding: 10px;
+}
+
 .main-wrapper {
     display: flex;
     width: 100%;
