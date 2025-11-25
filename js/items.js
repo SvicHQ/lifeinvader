@@ -569,6 +569,8 @@ if (typeof window.itemsLoaded === 'undefined') {
             tempTextArea.select();
             tempTextArea.setSelectionRange(0, 99999); // For mobile devices
 
+            document.getElementById("recent-log-history").innerHTML += `<p>${tempTextArea.value} <button onclick="navigator.clipboard.writeText('${tempTextArea.value.replace(/'/g, "\\'")}')">Copy</button></p>`;
+
             // Copy the text to the clipboard
             navigator.clipboard.writeText(tempTextArea.value).then(() => {
                 // Show notification (assuming you add the notification element and CSS)

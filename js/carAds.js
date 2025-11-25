@@ -598,6 +598,8 @@ if (typeof window.carAdsLoaded === 'undefined') {
                return;
            }
 
+           document.getElementById("recent-log-history").innerHTML += `<p>${outputText} <button onclick="navigator.clipboard.writeText('${outputText.replace(/'/g, "\\'")}')">Copy</button></p>`;
+
            try {
                await navigator.clipboard.writeText(outputText);
                showNotification();

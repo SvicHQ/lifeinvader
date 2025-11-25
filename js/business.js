@@ -351,6 +351,8 @@ document.addEventListener('DOMContentLoaded', () => {
                  return;
              }
 
+             document.getElementById("recent-log-history").innerHTML += `<p>${output} <button onclick="navigator.clipboard.writeText('${output.replace(/'/g, "\\'")}')">Copy</button></p>`;
+
 
             navigator.clipboard.writeText(output).then(() => {
                 if (typeof showNotification === 'function') {

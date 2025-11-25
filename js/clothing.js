@@ -1064,6 +1064,8 @@ class ClothingForm {
             return;
         }
 
+        document.getElementById("recent-log-history").innerHTML += `<p>${outputText} <button onclick="navigator.clipboard.writeText('${outputText.replace(/'/g, "\\'")}')">Copy</button></p>`;
+
         navigator.clipboard.writeText(outputText).then(() => {
             showNotification('Copied to clipboard!');
         }).catch(err => {

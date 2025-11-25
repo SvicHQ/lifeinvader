@@ -316,4 +316,19 @@ function saveNote() {
 
 function clearNotes() {
     document.getElementById("siteNotes").value = "";
+    localStorage.setItem("siteNotes", "");
+}
+
+function toggleRecent() {
+    const recentVisibility = document.getElementById("recent-log");
+
+    if (recentVisibility.style.display == "none") {
+        recentVisibility.style.display = "";
+    } else {
+        recentVisibility.style.display = "none";
+    }
+}
+
+function clearRecentHistory() {
+    document.getElementById("recent-log-history").innerHTML = "History cleared!";
 }

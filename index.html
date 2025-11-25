@@ -21,6 +21,15 @@
         </form>
     </div>
 
+    <button class="historyBtn" onclick="toggleRecent()">Recent</button>
+
+    <div id="recent-log" style="display: none;">
+        <h1>Recent History</h1>
+        <button class="btn reset-button" onclick="clearRecentHistory()">Clear History</button>
+        <hr>
+        <div id="recent-log-history" style="text-align: left;"></div>
+    </div>
+
     <!-- Premium Main Application -->
     <div id="main-app" style="display: none;">
         <div class="main-wrapper">
@@ -67,8 +76,11 @@
                     </ul>
                     <br>
                     <textarea class="note-area" id="siteNotes" placeholder="Notes" onkeyup="saveNote()"></textarea>
-                    <button class="noteBtn btn btn-secondary" onclick="clearNotes()">Clear</button>
-                    <button class="noteBtn btn reset-button" onclick="sitelogout()">Logout</button>
+                    <div class="note_btn_area">
+                        <button class="btn btn-secondary" onclick="clearNotes()">Clear</button>
+                        <button class="btn btn-light" onclick="toggleRecent()">Recent</button>
+                        <button class="btn reset-button" onclick="sitelogout()">Logout</button>
+                    </div>
                 </nav>
             </aside>
 
