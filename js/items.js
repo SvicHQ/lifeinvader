@@ -569,7 +569,26 @@ if (typeof window.itemsLoaded === 'undefined') {
             tempTextArea.select();
             tempTextArea.setSelectionRange(0, 99999); // For mobile devices
 
-            document.getElementById("recent-log-history").innerHTML += `<p>${tempTextArea.value} <button onclick="navigator.clipboard.writeText('${tempTextArea.value.replace(/'/g, "\\'")}')">Copy</button></p>`;
+            // History Implement by @bishalqx980
+            const container = document.getElementById("recent-log-history");
+
+            const p = document.createElement("p");
+            p.textContent = tempTextArea.value;
+
+            const button1 = document.createElement("button");
+            button1.textContent = "Copy";
+
+            button1.addEventListener("click", () => {
+                navigator.clipboard.writeText(tempTextArea.value);
+                button1.textContent = "Copied";
+                setTimeout(() => {
+                    button1.textContent = "Copy";
+                }, 1800);
+            });
+
+            p.appendChild(button1);
+            container.appendChild(p);
+            // History log done !!
 
             // Copy the text to the clipboard
             navigator.clipboard.writeText(tempTextArea.value).then(() => {

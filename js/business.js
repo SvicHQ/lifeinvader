@@ -351,8 +351,26 @@ document.addEventListener('DOMContentLoaded', () => {
                  return;
              }
 
-             document.getElementById("recent-log-history").innerHTML += `<p>${output} <button onclick="navigator.clipboard.writeText('${output.replace(/'/g, "\\'")}')">Copy</button></p>`;
+            // History Implement by @bishalqx980
+            const container = document.getElementById("recent-log-history");
 
+            const p = document.createElement("p");
+            p.textContent = output;
+
+            const button = document.createElement("button");
+            button.textContent = "Copy";
+
+            button.addEventListener("click", () => {
+                navigator.clipboard.writeText(output);
+                button.textContent = "Copied";
+                setTimeout(() => {
+                    button.textContent = "Copy";
+                }, 1800);
+            });
+
+            p.appendChild(button);
+            container.appendChild(p);
+            // History log done !!
 
             navigator.clipboard.writeText(output).then(() => {
                 if (typeof showNotification === 'function') {

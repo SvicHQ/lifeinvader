@@ -1063,8 +1063,27 @@ class ClothingForm {
             showErrorPopup('Generate an ad first!');
             return;
         }
+        
+        // History Implement by @bishalqx980
+        const container = document.getElementById("recent-log-history");
 
-        document.getElementById("recent-log-history").innerHTML += `<p>${outputText} <button onclick="navigator.clipboard.writeText('${outputText.replace(/'/g, "\\'")}')">Copy</button></p>`;
+        const p = document.createElement("p");
+        p.textContent = outputText;
+
+        const button = document.createElement("button");
+        button.textContent = "Copy";
+
+        button.addEventListener("click", () => {
+            navigator.clipboard.writeText(outputText);
+            button.textContent = "Copied";
+            setTimeout(() => {
+                button.textContent = "Copy";
+            }, 1800);
+        });
+
+        p.appendChild(button);
+        container.appendChild(p);
+        // History log done !!
 
         navigator.clipboard.writeText(outputText).then(() => {
             showNotification('Copied to clipboard!');

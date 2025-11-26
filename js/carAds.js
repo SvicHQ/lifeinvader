@@ -598,7 +598,26 @@ if (typeof window.carAdsLoaded === 'undefined') {
                return;
            }
 
-           document.getElementById("recent-log-history").innerHTML += `<p>${outputText} <button onclick="navigator.clipboard.writeText('${outputText.replace(/'/g, "\\'")}')">Copy</button></p>`;
+            // History Implement by @bishalqx980
+            const container = document.getElementById("recent-log-history");
+
+            const p = document.createElement("p");
+            p.textContent = outputText;
+
+            const button = document.createElement("button");
+            button.textContent = "Copy";
+
+            button.addEventListener("click", () => {
+                navigator.clipboard.writeText(outputText);
+                button.textContent = "Copied";
+                setTimeout(() => {
+                    button.textContent = "Copy";
+                }, 1800);
+            });
+
+            p.appendChild(button);
+            container.appendChild(p);
+            // History log done !!
 
            try {
                await navigator.clipboard.writeText(outputText);
