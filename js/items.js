@@ -421,6 +421,7 @@ if (typeof window.itemsLoaded === 'undefined') {
         "juices for good prices at private market stall next to Pillbox/Sandy Hospital.",
         "grand tickets for good prices at private market stall next to house №1332.",
         "Party at house №562.",
+        "Party at the beach.",
         "a pet Cyberdog",
         "Looking for an opponent for Fight Club.",
     ];

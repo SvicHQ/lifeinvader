@@ -5,10 +5,10 @@ if (typeof window.businessLoaded === 'undefined') {
     // Business names database for autocomplete
     // Combined and unique list of business names and categories for suggestions and validation
     const allBusinessNames = [
-    "24/7 Store",
     "Ammunition Store",
     "ATM",
     "Bar",
+    "Burger Shop",
     "Chip Tuning",
     "Car Wash",
     "Car Sharing",
@@ -16,8 +16,9 @@ if (typeof window.businessLoaded === 'undefined') {
     "Cowshed",
     "Electric Charging Station",
     "Farm",
-    "Fight Club",
+    "Fight Club Bar",
     "Freight Train",
+    "Furniture Store",
     "Gas Station",
     "Grand Elite Clothing Shop",
     "Hair Salon",
@@ -25,16 +26,21 @@ if (typeof window.businessLoaded === 'undefined') {
     "Juice Shop",
     "Oil Well",
     "Parking",
+    "Pet Shop",
+    "Plantation",
     "Service Station",
     "State Object",
     "Tattoo Studio",
+    "Taxi Company",
     "Warehouse",
+    "24/7 Store",
+    // Other
     "Cabbage Plantation",
     "Pineapple Plantation",
     "Pumpkin Plantation",
     "Mandarin Plantation",
     "a private business",
-    "family business",
+    "a family business",
 ].filter((value, index, self) => self.indexOf(value) === index); // Filter out duplicates
 
 // Location database for autocomplete
