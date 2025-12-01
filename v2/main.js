@@ -52,6 +52,8 @@ async function siteLogin(username, password, is_hash = false) {
     }
 
     const login_div = document.getElementById("login_div");
+    const main_div = document.getElementById("main_div");
+    main_div.style.display = "";
     login_div.style.display = "none";
 
     console.log("Login successful!");

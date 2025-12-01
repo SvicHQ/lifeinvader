@@ -24,14 +24,14 @@
         <p>© project maintaned by <a href="https://bishalqx980.github.io/bishalqx980/">bishalqx980</a></p>
     </div>
 
-    <button class="historyBtn" onclick="toggleRecent()">Recent</button>
+    <!-- <button class="historyBtn" onclick="toggleRecent()">Recent</button> -->
 
-    <div id="recent-log" style="display: none;">
+    <!-- <div id="recent-log" style="display: none;">
         <h1>Recent History</h1>
         <button class="btn reset-button" onclick="clearRecentHistory()">Clear History</button>
         <hr>
         <div id="recent-log-history" style="text-align: left;"></div>
-    </div>
+    </div> -->
 
     <!-- Premium Main Application -->
     <div id="main-app" style="display: none;">
@@ -76,12 +76,19 @@
                                 <span>Business Ads</span>
                             </a>
                         </li>
+
+                        <li>
+                            <a href="#" data-section="history" class="nav-link">
+                                <i class="fas fa-history"></i>
+                                <span>History</span>
+                            </a>
+                        </li>
                     </ul>
                     <br>
                     <textarea class="note-area" id="siteNotes" placeholder="Notes" onkeyup="saveNote()"></textarea>
                     <div class="note_btn_area">
                         <button class="btn btn-secondary" onclick="clearNotes()">Clear</button>
-                        <button class="btn btn-light" onclick="toggleRecent()">Recent</button>
+                        <!-- <button class="btn btn-light" onclick="toggleRecent()">Recent</button> -->
                         <button class="btn reset-button" onclick="sitelogout()">Logout</button>
                     </div>
                 </nav>
@@ -681,6 +688,23 @@
                         </div>
                     </section>
                 </div>
+
+                <!-- Premium Template Ads Section -->
+                <div id="history" class="tab-content">
+                    <section class="tab-section card shadow">
+                        <div class="card-body form-container">
+                            <div class="section-header"  style="text-align: center;">
+                                <h2 class="form-title">
+                                    <i class="fas fa-history"></i> History
+                                </h2>
+                                <button class="btn reset-button" onclick="clearRecentHistory()">Clear History</button>
+                                <!-- <p class="section-description">Get professional templates advertisements following LifeInvader guidelines</p> -->
+                            </div>
+
+                            <div id="recent-log-history" style="text-align: left;"></div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </div>
     </div>
@@ -707,6 +731,7 @@
     <script src="js/items.js"></script>
     <script src="js/business.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/templates.js"></script>
 </body>
 
 </html>
