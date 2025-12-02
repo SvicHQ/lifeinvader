@@ -181,6 +181,7 @@ if (typeof window.itemsLoaded === 'undefined') {
         "fuel for resource extraction",
         "gardeners container",
         "gasoline barrels",
+        "a grand ticket",
         "grand ticket",
         "GrandPro bodycam",
         "green fabric",
