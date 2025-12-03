@@ -1015,7 +1015,7 @@ class ClothingForm {
             }
 
             return itemText;
-        }).filter(text => text.trim()).join(validItems.length > 1 ? (validItems.length === 2 ? ' and ' : ', ') : ''); // Join with comma and "and"
+        }).filter(text => text.trim()).map((t, i, arr) => i === 0? t: i === arr.length - 1 ? (arr.length === 2 ? ' and ' + t : ' and ' + t): ', ' + t).join('');
 
 
         let output = `${capitalizedType}${isTrading ? ' or trading' : ''} ${itemsText}`;
