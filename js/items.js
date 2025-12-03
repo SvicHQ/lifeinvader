@@ -93,6 +93,7 @@ if (typeof window.itemsLoaded === 'undefined') {
         "a prime ticket of type 20",
         "a prime ticket of type 30",
         "arena container",
+        "resource miners tickets",
         "a resource miners ticket",
         "a starter prime ticket of type 7",
         "a starter prime ticket of type 10",
