@@ -8,8 +8,17 @@ if (typeof window.mainLoaded === 'undefined') {
     
     document.addEventListener('DOMContentLoaded', () => {
 
+        // Svic -Starts
         document.getElementById("siteNotes").value = localStorage.getItem("siteNotes") || "";
         updateLog(); // Site Update message
+        const darkLink = document.getElementById("theme-dark");
+        const saved = localStorage.getItem("theme");
+
+        if (saved === "dark") {
+            darkLink.disabled = false;
+        }
+
+        // Svic
 
     // Access control for AFK Logs tab (keeping this logic)
     const allowedUsers = ["bishalqx980"]; // Add allowed usernames here
@@ -332,4 +341,13 @@ function toggleRecent() {
 
 function clearRecentHistory() {
     document.getElementById("recent-log-history").innerHTML = "History cleared!";
+}
+
+function changeTheme() {
+    const darkLink = document.getElementById("theme-dark");
+    const isDark = !darkLink.disabled;
+
+    darkLink.disabled = isDark;
+
+    localStorage.setItem("theme", isDark ? "light" : "dark");
 }

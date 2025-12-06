@@ -605,7 +605,7 @@ class ClothingForm {
 
     createClothingInputGroup(index) {
         const itemDiv = document.createElement('div');
-        itemDiv.className = 'clothing-item-group mb-3 p-3 border rounded bg-light'; // Added some styling
+        itemDiv.className = 'clothing-item-group mb-3 p-3 border rounded'; // bg-light // Added some styling
 
         const nameLabel = document.createElement('label');
         nameLabel.className = 'form-label';
