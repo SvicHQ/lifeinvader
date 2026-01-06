@@ -277,7 +277,7 @@ async function sitelogin() {
     const login_password = document.getElementById("login_password").value;
 
     const authorized_users = ["bishalqx980"];
-    const stored_password_hash = "32ad188ae74bd4f2377fc55ff9f83f55d486971a0da5b39d6d347e2d861502d8";
+    const stored_password_hash = "32f5581a5d4844a12f5ed77334f58ab1511eb95e4ff953d0c3a995389fcffde9";
 
     // --- USERNAME CHECK ---
     if (!authorized_users.includes(login_username)) {
