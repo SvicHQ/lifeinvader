@@ -301,7 +301,7 @@ async function sitelogin() {
 
     // Save login
     localStorage.setItem("login_username", login_username);
-    localStorage.setItem("login_password", entered_hash);
+    localStorage.setItem("login_password", entered_password_hash);
     localStorage.setItem("auto_login", "1");
 }
 
